@@ -1,7 +1,7 @@
 
 
-newFormatters.protractorts = function(name, commands) {
-    var content = newprotractorts(name).formatter(commands);
+newFormatters.protractorts_simple = function(name, commands) {
+    var content = newprotractorts_simple(name).formatter(commands);
     return {
       content: content,
       extension: 'ts',
@@ -9,7 +9,7 @@ newFormatters.protractorts = function(name, commands) {
     }
   }
 
-  const newprotractorts = function (scriptName){
+  const newprotractorts_simple = function (scriptName){
     var _scriptName = scriptName  || "";
     const locatorType = {
 
@@ -62,14 +62,10 @@ newFormatters.protractorts = function(name, commands) {
 
         "click" : "\n" +
                   "    const elem_STEP_ = element(_BY_LOCATOR_);\n" +
-                  "    browser.wait(EC.elementToBeClickable(elem_STEP_), defaultTimeout,\n" +
-                  "      'Unable to find elem_STEP_ to be clickable.');\n" +
                   "    elem_STEP_.click();",
 
         "clickAndWait": "\n" +
                         "    const el__STEP_ = element(_BY_LOCATOR_);\n" +
-                        "    browser.wait(EC.elementToBeClickable(el__STEP_), defaultTimeout,\n" +
-                        "      'Unable to find elem_STEP_ to be clickable.');\n" +
                         "    el__STEP_.click();",
 
         "doubleClick": "browser.actions().doubleClick(element(_BY_LOCATOR_)).perform();",
@@ -99,37 +95,25 @@ newFormatters.protractorts = function(name, commands) {
         "verifyText" : "\n" +
                        "    const elem_STEP_ = element(_BY_LOCATOR_);\n" +
                        "    const text_STEP_ = '_VALUE_STR_';\n" +
-                       "    browser.wait(EC.textToBePresentInElement(elem_STEP_, text_STEP_), defaultTimeout,\n" +
-                       "      'Unable to find \\\'' + text_STEP_ + '\\\' to be present in elem_STEP_.');\n" +
                        "    expect(elem_STEP_.getText()).toContain(text_STEP_);",
         "verifyTitle" : "\n" +
                        "    const text_STEP_ = '_TARGET_STR_';\n" +
-                       "    browser.wait(EC.titleContains(text_STEP_), defaultTimeout,\n" +
-                       "      'Unable to find \\\'' + text_STEP_ + '\\\' in the page title.');\n" +
                        "    expect(browser.getTitle()).toContain(text_STEP_);",
         "verifyValue" : "\n" +
                        "    const elem_STEP_ = element(_BY_LOCATOR_);\n" +
                        "    const text_STEP_ = '_VALUE_STR_';\n" +
-                       "    browser.wait(EC.textToBePresentInElementValue(elem_STEP_, text_STEP_), defaultTimeout,\n" +
-                       "      'Unable to find \\\'' + text_STEP_ + '\\\' to be present in elem_STEP_'s value.');\n" +
                        "    expect(elem_STEP_.getAttribute('value')).toContain(text_STEP_);",
 
         "assertText" : "\n" +
                        "    const elem_STEP_ = element(_BY_LOCATOR_);\n" +
                        "    const text_STEP_ = '_VALUE_STR_';\n" +
-                       "    browser.wait(EC.textToBePresentInElement(elem_STEP_, text_STEP_), defaultTimeout,\n" +
-                       "      'Unable to find \\\'' + text_STEP_ + '\\\' to be present in elem_STEP_.');\n" +
                        "    expect(elem_STEP_.getText()).toContain(text_STEP_);",
         "assertTitle" : "\n" +
                        "    const text_STEP_ = '_TARGET_STR_';\n" +
-                       "    browser.wait(EC.titleContains(text_STEP_), defaultTimeout,\n" +
-                       "      'Unable to find \\\'' + text_STEP_ + '\\\' in the page title.');\n" +
                        "    expect(browser.getTitle()).toContain(text_STEP_);",
         "assertValue" : "\n" +
                        "    const elem_STEP_ = element(_BY_LOCATOR_);\n" +
                        "    const text_STEP_ = '_VALUE_STR_';\n" +
-                       "    browser.wait(EC.textToBePresentInElementValue(elem_STEP_, text_STEP_), defaultTimeout,\n" +
-                       "      'Unable to find \\\'' + text_STEP_ + '\\\' to be present in elem_STEP_'s value.');\n" +
                        "    expect(elem_STEP_.getAttribute('value')).toContain(text_STEP_);\n"
 
     }

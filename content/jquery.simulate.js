@@ -11,6 +11,8 @@
 
 ;(function( $, undefined ) {
 
+if(!$) return;
+
 var rkeyEvent = /^key/,
 	rmouseEvent = /^(?:mouse|contextmenu)|click/;
 

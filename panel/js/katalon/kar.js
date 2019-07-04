@@ -987,7 +987,7 @@ $(function() {
 
 $(function() {
     var manifestData = chrome.runtime.getManifest();
-    $(document).attr('title', 'Katalon Recorder ' + manifestData.version)
+    $(document).attr('title', 'Protractor Recorder ' + manifestData.version)
 });
 
 // KAT-BEGIN clear "Save" and "Clear" text

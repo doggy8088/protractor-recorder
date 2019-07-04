@@ -1,7 +1,7 @@
 
 
-newFormatters.protractorts = function(name, commands) {
-    var content = newprotractorts(name).formatter(commands);
+newFormatters.protractorts_await = function(name, commands) {
+    var content = newprotractorts_await(name).formatter(commands);
     return {
       content: content,
       extension: 'ts',
@@ -9,7 +9,7 @@ newFormatters.protractorts = function(name, commands) {
     }
   }
 
-  const newprotractorts = function (scriptName){
+  const newprotractorts_await = function (scriptName){
     var _scriptName = scriptName  || "";
     const locatorType = {
 
@@ -58,79 +58,79 @@ newFormatters.protractorts = function(name, commands) {
     // katalon
     // https://docs.katalon.com/katalon-recorder/docs/selenese-selenium-ide-commands-reference.html
     const seleneseCommands = {
-        "open": "browser.get('_TARGET_STR_');",
+        "open": "await browser.get('_TARGET_STR_');",
 
         "click" : "\n" +
                   "    const elem_STEP_ = element(_BY_LOCATOR_);\n" +
-                  "    browser.wait(EC.elementToBeClickable(elem_STEP_), defaultTimeout,\n" +
+                  "    await browser.wait(EC.elementToBeClickable(elem_STEP_), defaultTimeout,\n" +
                   "      'Unable to find elem_STEP_ to be clickable.');\n" +
-                  "    elem_STEP_.click();",
+                  "    await elem_STEP_.click();",
 
         "clickAndWait": "\n" +
                         "    const el__STEP_ = element(_BY_LOCATOR_);\n" +
-                        "    browser.wait(EC.elementToBeClickable(el__STEP_), defaultTimeout,\n" +
+                        "    await browser.wait(EC.elementToBeClickable(el__STEP_), defaultTimeout,\n" +
                         "      'Unable to find elem_STEP_ to be clickable.');\n" +
-                        "    el__STEP_.click();",
+                        "    await el__STEP_.click();",
 
-        "doubleClick": "browser.actions().doubleClick(element(_BY_LOCATOR_)).perform();",
+        "doubleClick": "await browser.actions().doubleClick(element(_BY_LOCATOR_)).perform();",
 
-        "type": "element(_BY_LOCATOR_).sendKeys('_VALUE_STR_');",
+        "type": "await element(_BY_LOCATOR_).sendKeys('_VALUE_STR_');",
 
-        "pause": "browser.sleep(_VALUE_);",
+        "pause": "await browser.sleep(_VALUE_);",
 
-        "refresh": "browser.refresh();",
+        "refresh": "await browser.refresh();",
 
         "selectWindow":
-            "const handles__STEP_ = browser.getAllWindowHandles();\n" +
-            "    browser.switchTo().window(handles__STEP_[handles__STEP_.length - 1]);",
+            "const handles__STEP_ = await browser.getAllWindowHandles();\n" +
+            "    await browser.switchTo().window(handles__STEP_[handles__STEP_.length - 1]);",
 
-        "sendKeys": "element(_BY_LOCATOR_).sendKeys(_SEND_KEY_);",
+        "sendKeys": "await element(_BY_LOCATOR_).sendKeys(_SEND_KEY_);",
 
-        "submit": "element(_BY_LOCATOR_).submit();",
+        "submit": "await element(_BY_LOCATOR_).submit();",
 
-        "selectFrame":"browser.switchTo().frame(element(_BY_LOCATOR_).getWebElement());",
+        "selectFrame":"await browser.switchTo().frame(element(_BY_LOCATOR_).getWebElement());",
 
-        "select": "element(_BY_LOCATOR_).element(by.cssContainingText('option', '_SELECT_OPTION_')).click();",
+        "select": "await element(_BY_LOCATOR_).element(by.cssContainingText('option', '_SELECT_OPTION_')).click();",
 
-        "goBack": "browser.navigate().back();",
+        "goBack": "await browser.navigate().back();",
 
-        "assertConfirmation": "browser.switchTo().alert().accept();",
+        "assertConfirmation": "await browser.switchTo().alert().accept();",
 
         "verifyText" : "\n" +
                        "    const elem_STEP_ = element(_BY_LOCATOR_);\n" +
                        "    const text_STEP_ = '_VALUE_STR_';\n" +
-                       "    browser.wait(EC.textToBePresentInElement(elem_STEP_, text_STEP_), defaultTimeout,\n" +
+                       "    await browser.wait(EC.textToBePresentInElement(elem_STEP_, text_STEP_), defaultTimeout,\n" +
                        "      'Unable to find \\\'' + text_STEP_ + '\\\' to be present in elem_STEP_.');\n" +
-                       "    expect(elem_STEP_.getText()).toContain(text_STEP_);",
+                       "    expect(await elem_STEP_.getText()).toContain(text_STEP_);",
         "verifyTitle" : "\n" +
                        "    const text_STEP_ = '_TARGET_STR_';\n" +
-                       "    browser.wait(EC.titleContains(text_STEP_), defaultTimeout,\n" +
+                       "    await browser.wait(EC.titleContains(text_STEP_), defaultTimeout,\n" +
                        "      'Unable to find \\\'' + text_STEP_ + '\\\' in the page title.');\n" +
-                       "    expect(browser.getTitle()).toContain(text_STEP_);",
+                       "    expect(await browser.getTitle()).toContain(text_STEP_);",
         "verifyValue" : "\n" +
                        "    const elem_STEP_ = element(_BY_LOCATOR_);\n" +
                        "    const text_STEP_ = '_VALUE_STR_';\n" +
-                       "    browser.wait(EC.textToBePresentInElementValue(elem_STEP_, text_STEP_), defaultTimeout,\n" +
+                       "    await browser.wait(EC.textToBePresentInElementValue(elem_STEP_, text_STEP_), defaultTimeout,\n" +
                        "      'Unable to find \\\'' + text_STEP_ + '\\\' to be present in elem_STEP_'s value.');\n" +
-                       "    expect(elem_STEP_.getAttribute('value')).toContain(text_STEP_);",
+                       "    expect(await elem_STEP_.getAttribute('value')).toContain(text_STEP_);",
 
         "assertText" : "\n" +
                        "    const elem_STEP_ = element(_BY_LOCATOR_);\n" +
                        "    const text_STEP_ = '_VALUE_STR_';\n" +
-                       "    browser.wait(EC.textToBePresentInElement(elem_STEP_, text_STEP_), defaultTimeout,\n" +
+                       "    await browser.wait(EC.textToBePresentInElement(elem_STEP_, text_STEP_), defaultTimeout,\n" +
                        "      'Unable to find \\\'' + text_STEP_ + '\\\' to be present in elem_STEP_.');\n" +
-                       "    expect(elem_STEP_.getText()).toContain(text_STEP_);",
+                       "    expect(await elem_STEP_.getText()).toContain(text_STEP_);",
         "assertTitle" : "\n" +
                        "    const text_STEP_ = '_TARGET_STR_';\n" +
-                       "    browser.wait(EC.titleContains(text_STEP_), defaultTimeout,\n" +
+                       "    await browser.wait(EC.titleContains(text_STEP_), defaultTimeout,\n" +
                        "      'Unable to find \\\'' + text_STEP_ + '\\\' in the page title.');\n" +
-                       "    expect(browser.getTitle()).toContain(text_STEP_);",
+                       "    expect(await browser.getTitle()).toContain(text_STEP_);",
         "assertValue" : "\n" +
                        "    const elem_STEP_ = element(_BY_LOCATOR_);\n" +
                        "    const text_STEP_ = '_VALUE_STR_';\n" +
-                       "    browser.wait(EC.textToBePresentInElementValue(elem_STEP_, text_STEP_), defaultTimeout,\n" +
+                       "    await browser.wait(EC.textToBePresentInElementValue(elem_STEP_, text_STEP_), defaultTimeout,\n" +
                        "      'Unable to find \\\'' + text_STEP_ + '\\\' to be present in elem_STEP_'s value.');\n" +
-                       "    expect(elem_STEP_.getAttribute('value')).toContain(text_STEP_);\n"
+                       "    expect(await elem_STEP_.getAttribute('value')).toContain(text_STEP_);\n"
 
     }
 
@@ -138,19 +138,19 @@ newFormatters.protractorts = function(name, commands) {
         "import { browser, by, element, $, $$, Key, logging, ExpectedConditions as EC } from 'protractor';\n\n" +
         "describe('_SCRIPT_NAME_', () => {\n\n" +
         "  const defaultTimeout = 5000; // ExpectedConditions's default timeout\n\n" +
-        "  beforeAll(() => {\n" +
-        "    // browser.waitForAngularEnabled(false);\n" +
-        "    // browser.manage().window().setSize(1024, 768);\n" +
+        "  beforeAll(async () => {\n" +
+        "    // await browser.waitForAngularEnabled(false);\n" +
+        "    // await browser.manage().window().setSize(1024, 768);\n" +
         "  });\n\n" +
-        "  beforeEach(() => {\n" +
+        "  beforeEach(async () => {\n" +
         "  });\n\n" +
-        "  it('should _SCRIPT_NAME_', () => {\n"
+        "  it('should _SCRIPT_NAME_', async () => {\n"
 
     const footer =
         "  });\n\n" +
-        "  afterEach(() => {\n" +
+        "  afterEach(async () => {\n" +
         "    // Assert that there are no errors emitted from the browser\n" +
-        "    const logs = browser.manage().logs().get(logging.Type.BROWSER);\n" +
+        "    const logs = await browser.manage().logs().get(logging.Type.BROWSER);\n" +
         "    expect(logs).not.toContain(jasmine.objectContaining({\n" +
         "      level: logging.Level.SEVERE,\n" +
         "    } as logging.Entry));\n" +
