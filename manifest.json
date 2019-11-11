@@ -5,9 +5,10 @@
     "version": "0.0.1",
     "homepage_url": "https://www.katalon.com/",
     "icons": {
-        "16": "katalon/images/branding_16.png",
-        "48": "katalon/images/branding_48.png",
-        "128": "katalon/images/branding_128.png"
+        "16": "katalon/images/protractor-16.png",
+        "48": "katalon/images/protractor-48.png",
+        "128": "katalon/images/protractor-128.png",
+        "256": "katalon/images/protractor-256.png"
     },
     "permissions": [
         "tabs",
@@ -82,8 +83,8 @@
         ]
     },
     "browser_action": {
-        "default_icon": "katalon/images/branding_16.png",
-        "default_title": "Protractor Recorder (powered by Katalon Recorder)"
+        "default_icon": "katalon/images/protractor-16.png",
+        "default_title": "Protractor Recorder"
     },
     "web_accessible_resources": [
         "page/prompt.js",
