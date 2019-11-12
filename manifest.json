@@ -1,7 +1,7 @@
 {
     "description": "Best automation recorder. Exports Selenium WebDriver code. Provides reports, logs, screenshots. Fast & extensible.",
     "manifest_version": 2,
-    "name": "Protractor Recorder (powered by Katalon Recorder)",
+    "name": "Protractor Recorder",
     "version": "0.0.1",
     "homepage_url": "https://www.katalon.com/",
     "icons": {

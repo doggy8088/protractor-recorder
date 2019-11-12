@@ -1,21 +1,22 @@
-# Protractor Recorder (powered by [Katalon Recorder](https://github.com/katalon-studio/katalon-recorder))
+# Protractor Recorder
 
 ## How to add new formatter
 
 Add to `panel\index.html` (replace `sample` with the formatter name):
 
-```
+```html
 <option value="new-formatter-sample">Sample for new formatters</option>
 ```
 
 Sample implementation:
-```
+
+```txt
 panel\js\katalon\newformatters\sample.js
 ```
 
 ## Acknowledgments
 
-This tool is developed based on Katalon Recorder. We would like to take this opportunity to express our warmest thanks to Katalon Recorder users and other open-source projects, especially:
+This tool is developed based on [Katalon Recorder](https://github.com/katalon-studio/katalon-recorder). We would like to take this opportunity to express our warmest thanks to Katalon Recorder users and other open-source projects, especially:
 
 * Selenium IDE Project - [http://www.seleniumhq.org](http://www.seleniumhq.org/).
 
